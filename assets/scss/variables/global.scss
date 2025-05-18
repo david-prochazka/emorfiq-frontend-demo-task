@@ -73,17 +73,21 @@ $ui-ff-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courie
 $ui-ff-base: var(--ff-base), $ui-ff-sans !default;
 $ui-ff-display: var(--ff-display), $ui-ff-sans !default;
 
-$ui-global-ff-base: 'Montserrat' !default;
+$ui-global-ff-base: 'Manrope' !default;
 $ui-global-ff-display: 'Ubuntu' !default;
 
 // Fonts-weight
-$ui-fw-bold: 500 !default;
-$ui-fw-bolder: 600 !default;
+$ui-fw-bold: 600 !default;
+$ui-fw-bolder: 800 !default;
 
 // Font sizes in rem
 // generate css custom properties
 // --fs-500 etc
-$ui-global-fs: () !default;
+$ui-global-fs: (
+    550: 1.5rem,
+    450: 1.3rem,
+    350: 1.1rem,
+) !default;
 $ui-fs: map-extend((
     2600: 5.6rem,
     2200: 4.8rem,
@@ -102,7 +106,7 @@ $ui-fs: map-extend((
 $ui-global-font-size: var(--fs-500) !default;
 $ui-global-font-family: $ui-ff-base !default;
 $ui-global-font-weight: 400 !default;
-$ui-global-bold-font-weight: 700 !default;
+$ui-global-bold-font-weight: 800 !default;
 $ui-global-letter-spacing: 0 !default;
 $ui-global-line-height: 1.5 !default;
 
@@ -114,7 +118,7 @@ $ui-global-min-width: 320px !default;
 
 // Colors
 $ui-global-background: $ui-color-white !default;
-$ui-global-text-color: $ui-color-gray-500 !default;
+$ui-global-text-color: $ui-color-gray-800 !default;
 $ui-global-text-color-l: $ui-color-gray-400 !default;
 
 // Links

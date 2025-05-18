@@ -33,7 +33,7 @@ $product-card__desktop-padding: $product-card__mobile-padding;
 //$product-card-body-background-color: none;
 
 //$product-card__mobile-body-margin: none;
-//$product-card__mobile-body-padding: $spacer-1 0 $spacer-0;
+$product-card__mobile-body-padding: 0.8rem 0.8rem 0;
 
 //$product-card__desktop-body-margin: $product-card__mobile-body-margin;
 $product-card__desktop-body-padding: 1.2rem 1.2rem 0;
@@ -42,11 +42,11 @@ $product-card__desktop-body-padding: 1.2rem 1.2rem 0;
 //$product-card-footer-background-color: none;
 
 //$product-card__mobile-footer-margin: none;
-$product-card__mobile-footer-padding: 1.2rem 1.2rem 0;
+$product-card__mobile-footer-padding: 0.8rem 0.8rem 0;
 //$product-card__mobile-footer-height: none;
 
 //$product-card__desktop-footer-margin: $product-card__mobile-footer-margin;
-//$product-card__desktop-footer-padding: $product-card__mobile-footer-padding;
+$product-card__desktop-footer-padding: 1.2rem 1.2rem 0;;
 //$product-card__desktop-footer-height: $product-card__mobile-footer-height;
 
 // Footer content
@@ -143,14 +143,14 @@ $product-card__badges_positions: (
         tertiary: (
                 0: (
                         position: absolute,
-                        inset: auto auto 8px 8px,
+                        inset: auto auto 0.8rem 0.8rem,
                         display: flex,
                         flex-flow: row wrap,
                         align-items: flex-start,
                         gap: 6px,
                 ),
                 lg: (
-                        inset: auto auto 12px 12px,
+                        inset: auto auto 1.2rem 1.2rem,
                         gap: 8px,
                 )
         ),

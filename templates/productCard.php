@@ -6,9 +6,9 @@
         </div>
         <?php if (rand(0,1)) { ?>
             <div class="ProductCard-tertiaryBadges">
-                <div class="Badge Badge--rectangle" style="--background: #132736">Novinka</div>
-                <div class="Badge Badge--rectangle" style="--background: #00519e">Doprodej</div>
-                <div class="Badge Badge--rectangle" style="--background: #d91242">Sleva -10 %</div>
+                <span class="Badge Badge--rectangle Badge--new">Novinka</span>
+                <span class="Badge Badge--rectangle Badge--clearance">Doprodej</span>
+                <span class="Badge Badge--rectangle Badge--discount">Sleva -10 %</span>
             </div>
         <?php } ?>
         <?php if (rand(0,1)) { ?>

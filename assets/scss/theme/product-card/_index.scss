@@ -143,10 +143,14 @@ $product-card__badges_positions: (
         tertiary: (
                 0: (
                         position: absolute,
-                        inset: auto auto 12px 12px,
+                        inset: auto auto 8px 8px,
                         display: flex,
                         flex-flow: row wrap,
                         align-items: flex-start,
+                        gap: 6px,
+                ),
+                lg: (
+                        inset: auto auto 12px 12px,
                         gap: 8px,
                 )
         ),

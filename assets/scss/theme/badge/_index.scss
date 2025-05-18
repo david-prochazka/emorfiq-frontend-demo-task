@@ -31,15 +31,19 @@ $badge-types: (
     rectangle: (
         '': (
             0: (
-                padding: 6px 12px,
-                font-size: var(--fs-350),
+                padding: 4px 6px,
+                font-size: var(--fs-300),
                 line-height: normal,
                 font-weight: $ui-fw-bolder,
                 text-transform: uppercase,
                 border-radius: 3px,
                 background-color: var(--background, $ui-color-gray-500),
                 --badgeColor: var(--color, $ui-color-white),
-            )
+            ),
+            lg: (
+                padding: 6px 12px,
+                font-size: var(--fs-350),
+            ),
         ),
     ),
     rectangleSide: (
@@ -112,3 +116,28 @@ $badge-types: (
         ),
     ),
 );
+
+// Colors
+$badge-colors: (
+  new: (
+    background: $ui-color-darkblue,
+    color: $ui-color-white,
+  ),
+  clearance: (
+    background: $ui-color-blue,
+    color: $ui-color-white,
+  ),
+  discount: (
+    background: $ui-color-red,
+    color: $ui-color-white,
+  ),
+);
+
+
+@each $type, $colors in $badge-colors {
+  .Badge--#{$type} {
+    @each $name, $color in $colors {
+      --#{$name}: #{$color};
+    }
+  }
+}

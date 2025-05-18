@@ -1,0 +1,143 @@
+// Common
+//$badge-color: var(--badgeColor);
+
+// Link
+//$badge-link-text-decoration: nones;
+
+// Link#hover
+//$badge-link-hover-text-decoration: nones;
+
+// Btn
+//$badge-btn-text-decoration: $badge-link-text-decoration;
+
+// Btn#hover
+//$badge-btn-hover-color: $ui-color-white;
+//$badge-btn-hover-text-decoration: $badge-link-hover-text-decoration;
+//$badge-btn-hover-border-color: none;
+//$badge-btn-hover-background-color: var(--color, $ui-color-gray-500);
+//$badge-btn-hover-box-shadow: 0 5px 10px 0 rgba($ui-color-black, 0.10);
+
+// Badges
+$badge-types: (
+    text: (// name
+        '': (
+            0: (// breakpoint
+                line-height: 1,
+                font-weight: $ui-fw-bold,
+                --badgeColor: var(--color, $ui-color-gray-500),
+            ),
+        ),
+    ),
+    rectangle: (
+        '': (
+            0: (
+                padding: 4px 6px,
+                font-size: var(--fs-300),
+                line-height: normal,
+                font-weight: $ui-fw-bolder,
+                text-transform: uppercase,
+                border-radius: 3px,
+                background-color: var(--background, $ui-color-gray-500),
+                --badgeColor: var(--color, $ui-color-white),
+            ),
+            lg: (
+                padding: 6px 12px,
+                font-size: var(--fs-350),
+            ),
+        ),
+    ),
+    rectangleSide: (
+        '': (
+            0: (
+                padding: 0 8px 0 16px,
+                font-size: var(--fs-300),
+                line-height: 2,
+                font-weight: $ui-fw-bolder,
+                border-radius: 0 50px 50px 0,
+                background-color: var(--background, $ui-color-gray-500),
+                --badgeColor: var(--color, $ui-color-white),
+            ),
+        ),
+    ),
+    circle: (
+        '': (
+            0: (
+                display: flex,
+                align-items: center,
+                justify-content: center,
+                width: 32px,
+                height: 32px,
+                font-size: var(--fs-400),
+                line-height: 1,
+                font-weight: 700,
+                border-radius: 50%,
+                background-color: var(--background, $ui-color-gray-500),
+                --badgeColor: var(--color, $ui-color-white),
+            ),
+            lg: (
+                width: 54px,
+                height: 54px,
+                font-size: var(--fs-500),
+            ),
+        ),
+        large: (
+            0: (
+                display: flex,
+                align-items: center,
+                justify-content: center,
+                width: 40px,
+                height: 40px,
+                font-size: var(--fs-400),
+                line-height: 1,
+                font-weight: 700,
+                border-radius: 50%,
+                background-color: var(--background, $ui-color-gray-500),
+                --badgeColor: var(--color, $ui-color-white),
+            ),
+            lg: (
+                width: 54px,
+                height: 54px,
+                font-size: var(--fs-500),
+            ),
+        ),
+    ),
+    btn: (
+        '': (
+            0: (
+                padding: 6px 15px,
+                font-size: var(--fs-400),
+                line-height: 1.333,
+                font-weight: $ui-fw-bold,
+                border: 1px solid var(--color, $ui-color-gray-500),
+                border-radius: $ui-global-border-radius,
+                --badgeColor: var(--color, $ui-color-gray-500),
+                background-color: $ui-color-white,
+            ),
+        ),
+    ),
+);
+
+// Colors
+$badge-colors: (
+  new: (
+    background: $ui-color-darkblue,
+    color: $ui-color-white,
+  ),
+  clearance: (
+    background: $ui-color-blue,
+    color: $ui-color-white,
+  ),
+  discount: (
+    background: $ui-color-red,
+    color: $ui-color-white,
+  ),
+);
+
+
+@each $type, $colors in $badge-colors {
+  .Badge--#{$type} {
+    @each $name, $color in $colors {
+      --#{$name}: #{$color};
+    }
+  }
+}

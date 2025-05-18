@@ -1,55 +1,65 @@
-<div class="ProductCard">
-    <a href="#product" class="ProductCard-link"></a>
-    <div class="ProductCard-header">
+<?php $productType = rand(0,1) ?>
+<?php $isNew = rand(0,1) ?>
+<?php $isClearance = rand(0,1) ?>
+<?php $hasDiscount = rand(0,1) ?>
+
+<article class="ProductCard" itemscope itemtype="https://schema.org/Product">
+    <a href="#product" class="ProductCard-link" aria-label="Zobrazit detail produktu"></a>
+    <header class="ProductCard-header">
         <div class="ProductCard-imageWrapper">
-            <img src="public/images/product-<?php echo rand(0,1); ?>.png" width="652" height="560" alt="" class="ProductCard-image ProductCard-image--primary" loading="lazy">
-        </div>
-        <?php if (rand(0,1)) { ?>
-            <div class="ProductCard-primaryBadges">
-                <div class="Badge Badge--circle">
-                    -10%
-                </div>
-            </div>
-        <?php } ?>
-        <?php if (rand(0,1)) { ?>
-            <div class="ProductCard-tertiaryBadges">
-                <div class="Badge Badge--rectangleSide">Pro grafiky</div>
-            </div>
-        <?php } ?>
-    </div>
-    <div class="ProductCard-body">
-        <div>
-            <?php if (rand(0,1)) { ?>
-            <div class="ProductCard-secondaryBadges">
-                <div class="Badge Badge--rectangle" style="--color: #5ce62e">
-                    štítek test
-                </div>
-            </div>
-            <?php } ?>
-            <h2 class="ProductCard-title">
-                <?php if (rand(0,1)) { ?>
-                    MacBook Pro 15" 2,5 GHz s Retina displejem, 512 GB (2015)
+            <img
+                src="public/images/product-<?php echo $productType; ?>.png"
+                width="652"
+                height="560"
+                alt="Fotografie produktu <?= $productType === 0 ? 'MacBook Pro' : 'iPhone 5s'  ?>"
+                class="ProductCard-image ProductCard-image--primary"
+                <?php if ($i < 8) { ?>
+                    fetchpriority="high" loading="eager"
                 <?php } else { ?>
-                    iPhone 5s
+                    fetchpriority="low" loading="lazy"
                 <?php } ?>
-            </h2>
+                itemprop="image"
+            >
         </div>
-        <div class="ProductCard-stock">
-            <?php if (rand(0,1)) { ?>
-            <div class="u-fontMedium u-textColorGreen">Skladem &gt; 5 ks</div>
-            <?php } else { ?>
-                <div class="u-fontMedium u-textColorOrange">Naskladníme do 24 hodin</div>
-            <?php } ?>
-        </div>
-    </div>
-    <div class="ProductCard-footer">
+        <?php if ($isNew || $isClearance || $hasDiscount) { ?>
+            <div class="ProductCard-tertiaryBadges">
+                <?php if ($isNew) { ?>
+                    <span class="Badge Badge--rectangle Badge--new">Novinka</span>
+                <?php } ?>
+                <?php if ($isClearance) { ?>
+                    <span class="Badge Badge--rectangle Badge--clearance">Doprodej</span>
+                <?php } ?>
+                <?php if ($hasDiscount) { ?>
+                    <span class="Badge Badge--rectangle Badge--discount">Sleva -10 %</span>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if (rand(0,1)) { ?>
+            <div class="ProductCard-variants">
+                <p class="ProductCard-variantsTitle">Zvolte velikost:</p>
+                <ul class="ProductCard-variantsList" role="list">
+                    <?php foreach (['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'] as $size) { ?>
+                        <li class="ProductCard-variant" role="listitem">
+                            <a class="ProductCard-variantLink" href="#variant<?php echo $size; ?>" aria-label="Zvolit velikost <?php echo $size; ?>"><?php echo $size; ?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
+    </header>
+    <main class="ProductCard-body">
+        <h2 class="ProductCard-title" itemprop="name">
+            <?= $productType === 0 ? 'MacBook Pro 15" 2,5 GHz s Retina displejem, 512 GB (2015)' : 'iPhone 5s'  ?>
+        </h2>
+    </main>
+    <footer class="ProductCard-footer">
         <div class="ProductCard-footerContent">
             <div class="ProductCard-priceWrapper">
-                <div class="ProductCard-price"> 76&nbsp;990&nbsp;Kč</div>
-            </div>
-            <div class="ProductCard-quantity">
-                <a href="#basket" class="Btn Btn--secondary Btn--style1 Btn-0--block Btn-xs--block Btn-sm--block ProductCard-btn ">Do košíku</a>
+                <span class="ProductCard-price" itemprop="price" content="76990">76&nbsp;990&nbsp;Kč</span>
+                <?php if ($hasDiscount) { ?>
+                <del class="ProductCard-priceOld" aria-hidden="true">85&nbsp;544&nbsp;Kč</del>
+                <?php } ?>
             </div>
         </div>
-    </div>
-</div>
+    </footer>
+</article>

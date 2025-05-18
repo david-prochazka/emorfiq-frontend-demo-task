@@ -340,6 +340,7 @@ $product-card__mobile-title-line-height: normal;
   outline: 1px solid $ui-global-border-color-light;
   outline-offset: -1px;
   font-size: var(--fs-350);
+  font-weight: $ui-fw-bold;
   text-decoration: none;
 
   &:hover, &:focus {
